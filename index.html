@@ -15,29 +15,31 @@
 <body>
     <!--Vue js-->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <!--Header-->
-    <header class="container text-center mt-5">
-        <h1 class="text-danger ">VUE SLIDER</h1>
-    </header>
-    <main>
-        <!--Button Section-->
-        <div class="container d-flex justify-content-between w-50 mt-5" id="button-container">
-            <button class="btn btn-info p-2 border border-dark">Previous Slide</button>
-            <button class="btn btn-warning p-2 border border-dark">Next Slide</button>
-        </div>
-        <!--Carousel Section-->
-        <section class="mt-5">
-            <div id="carousel-container" class="container w-75">
-                <div id="img-card" class="container border border-dark">
-                    <img src="./img/01.webp" class="img-fluid" alt="">
-
-                </div>
+    <div id="app">
+        <!--Header-->
+        <header class="container text-center mt-5">
+            <h1 class="text-danger ">VUE SLIDER</h1>
+        </header>
+        <main>
+            <!--Button Section-->
+            <div class="container d-flex justify-content-between w-50 mt-5" id="button-container">
+                <button class="btn btn-info p-2 border border-dark" @click="decreaseIndex()">Previous Slide</button>
+                <button class="btn btn-warning p-2 border border-dark" @click="increaseIndex()">Next Slide</button>
             </div>
-        </section>
-    </main>
+            <!--Carousel Section-->
+            <section class="mt-5">
+                <div id="carousel-container" class="container w-75">
+                    <h1> {{ games[activeIndex].title }}</h1>
+                    <p>{{ games[activeIndex].text }}</p>
+                    <div id="img-card" class="container">
+                        <img v-bind:src="games[activeIndex].imageSource" class="img-fluid" alt="">
+                    </div>
+                </div>
+            </section>
+        </main>
 
 
-
+    </div>
     <!--Script-->
     <script src="./script.js"></script>
 </body>
